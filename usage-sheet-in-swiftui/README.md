@@ -5,8 +5,6 @@
 
 # Использование .sheet в SwiftUI
 
-<!-- markdownlint-disable MD033 -->
-
 `.sheet`, прикрепленный ко View, в SwiftUI показывает новое модальное окно,
 поверх этого View.
 
@@ -31,7 +29,7 @@ struct ContentView: View {
 }
 ```
 
-<img src="./img/sheet.gif" alt="base sheet" height="500"/>
+![](./img/sheet.gif)
 
 Есть какой-то `@State`, на который триггерится `.sheet`, причем необязательно
 `Bool`, есть конфигурация `.sheet` с `Item: Identifiable`:
@@ -59,7 +57,7 @@ public func sheet<Item, Content>(item: Binding<Item?>, onDismiss: (() -> Void)? 
 Есть `.presentationDetents`, который настраивает высоту модального окна,
 позволяет делать два положения, к примеру, на половину и полностью:
 
-<img src="./img/presentationDetents.gif" alt="presentationDetent" height="500"/>
+![](./img/presentation-detents.gif)
 
 и другие инструменты:
 
@@ -103,7 +101,7 @@ GeometryReader { geometry in
 }
 ```
 
-<img src="./img/geometry-reader.gif" alt="geometry reader usage" height="500"/>
+![](./img/geometry-reader.gif)
 
 Выглядит сухо, но можно опять же накидать анимаций, для плавности, теней и т.п.
 
