@@ -8,10 +8,10 @@
 
 > Это перевод [этой](https://nalexn.github.io/swiftui-observableobject/) статьи
 
-`SwiftUI` был разработан c поощрением создания приложений в стиле single source
-of truth. Однако при использовании `@ObservedObject` снижается
-производительность при большом количестве подписчиков. Это значит, что при
-разработке большого приложения начнутся проблемы с централизованном состоянии.
+SwiftUI был разработан c поощрением создания приложений в стиле single source of
+truth. Однако при использовании `@ObservedObject` снижается производительность
+при большом количестве подписчиков. Это значит, что при разработке большого
+приложения начнутся проблемы с централизованном состоянии.
 
 # Обёртка в EquatableView
 
@@ -52,6 +52,8 @@ CustomView().equatable().environmentObject(AppState())
 будет копировать, поэтому постоянно сравнивается один и тот же instance.
 
 # Snapshot состояния в View
+
+Можно попробовать просто сохранять внутри view snapshot:
 
 ```swift
 struct CustomView: View, Equatable {
@@ -113,10 +115,10 @@ struct CustomView: View {
 }
 
 let view = CustomView().environmentObject(
-        appState.deduplicated {
-            Snapshot(value: $0.value)
-        }
-    )
+    appState.deduplicated {
+        Snapshot(value: $0.value)
+    }
+)
 ```
 
 Но есть проблемы с таким подходом:
